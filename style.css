@@ -8,13 +8,11 @@ body{background:var(--bg);font-family:"Pixelify Sans",ui-monospace,Menlo,monospa
 
 #stage{position:relative;height:100%}
 #env{position:absolute;left:50%;top:14%;width:150px;height:108px;margin-left:-75px;border:3px dotted var(--pink-d);border-radius:6px;padding:8px}
-#env .in{position:relative;width:100%;height:100%;border:3px solid var(--pink-d);background:#fff7f6;border-radius:3px;overflow:hidden}
-#env .flap{position:absolute;inset:0;background:var(--pink);clip-path:polygon(0 0,100% 0,50% 62%);transform-origin:top;transition:transform .6s}
-#env .seal{position:absolute;left:50%;top:44%;margin-left:-9px;font-size:18px;color:var(--red);line-height:1}
-#env .l1,#env .l2{position:absolute;bottom:0;width:50%;height:60%;border-top:2px solid var(--pink-d)}
-#env .l1{left:0;transform-origin:left bottom;transform:skewY(-30deg) translateY(10px)}
-#env .l2{right:0;transform:skewY(30deg) translateY(10px)}
-#env.open .flap{transform:rotateX(180deg);opacity:0;transition:transform .6s,opacity .3s .3s}
+#env svg{display:block;width:100%;height:100%;overflow:visible}
+#env .flap{transform-box:fill-box;transform-origin:50% 0;transition:transform .55s}
+#env .paper{transition:transform .6s .3s}
+#env.open .flap{transform:scaleY(-1)}
+#env.open .paper{transform:translateY(-14px)}
 #env.open{animation:pop .5s}
 @keyframes pop{50%{transform:scale(1.15)}}
 #env.hit{animation:shake .35s}
@@ -22,7 +20,7 @@ body{background:var(--bg);font-family:"Pixelify Sans",ui-monospace,Menlo,monospa
 #label{position:absolute;left:0;right:0;top:calc(14% + 125px);text-align:center;font-size:14px;letter-spacing:1px}
 #label b{color:var(--red)}
 
-#bow{position:absolute;left:50%;bottom:12%;width:80px;height:100px;margin-left:-40px;margin-bottom:0;transform-origin:50% 50%}
+#bow{position:absolute;left:50%;bottom:12%;width:100px;height:100px;margin-left:-50px;margin-bottom:0;transform-origin:50% 50%}
 #bow svg{width:100%;height:100%;overflow:visible}
 #arrow{position:fixed;left:0;top:0;width:12px;height:70px;margin:-35px 0 0 -6px;display:none;pointer-events:none;z-index:5}
 #hint{position:absolute;left:0;right:0;bottom:4%;text-align:center;font-size:12px;opacity:.8}
